@@ -1,0 +1,53 @@
+name: Validate Marketplace
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    # Check weekly that all plugin repos still exist and are accessible
+    - cron: '0 9 * * 1'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate marketplace.json structure
+        run: |
+          echo "Checking marketplace.json..."
+          test -f .claude-plugin/marketplace.json && echo "marketplace.json: OK"
+
+          python3 -c "
+          import json, sys
+          with open('.claude-plugin/marketplace.json') as f:
+              data = json.load(f)
+          assert 'name' in data, 'Missing name'
+          assert 'plugins' in data, 'Missing plugins'
+          assert len(data['plugins']) > 0, 'No plugins listed'
+          for p in data['plugins']:
+              assert 'name' in p, f'Plugin missing name'
+              assert 'source' in p, f'Plugin missing source'
+              assert 'repo' in p['source'], f'Plugin missing repo'
+              print(f'  {p[\"name\"]}: {p[\"source\"][\"repo\"]} OK')
+          print(f'Validated {len(data[\"plugins\"])} plugins')
+          "
+
+      - name: Check plugin repos are accessible
+        run: |
+          python3 -c "
+          import json, urllib.request
+          with open('.claude-plugin/marketplace.json') as f:
+              data = json.load(f)
+          for p in data['plugins']:
+              repo = p['source']['repo']
+              url = f'https://api.github.com/repos/{repo}'
+              try:
+                  req = urllib.request.Request(url)
+                  resp = urllib.request.urlopen(req)
+                  print(f'{repo}: accessible (HTTP {resp.status})')
+              except Exception as e:
+                  print(f'WARNING: {repo} not accessible: {e}')
+          "
