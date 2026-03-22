@@ -1,0 +1,26 @@
+{
+  "name": "bis-code",
+  "description": "Claude Code plugins by Ioan-Sorin Baicoianu — structured reasoning, learning tools, and more",
+  "owner": {
+    "name": "Ioan-Sorin Baicoianu",
+    "email": "baicoianuioansorin@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "deep-think",
+      "description": "Structured reasoning with auto-checkpointing, branching, and reflection",
+      "source": {
+        "source": "github",
+        "repo": "bis-code/mcp-deep-think"
+      }
+    },
+    {
+      "name": "study-dash",
+      "description": "Structured learning on any subject — dashboard, Q&A logging, AI visualizations, exercises with test validation",
+      "source": {
+        "source": "github",
+        "repo": "bis-code/study-dash"
+      }
+    }
+  ]
+}
