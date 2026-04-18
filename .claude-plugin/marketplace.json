@@ -1,6 +1,6 @@
 {
   "name": "bis-code",
-  "description": "Claude Code plugins by Ioan-Sorin Baicoianu — structured reasoning, learning tools, and more",
+  "description": "Claude Code plugins by Ioan-Sorin Baicoianu \u2014 structured reasoning, learning tools, and more",
   "owner": {
     "name": "Ioan-Sorin Baicoianu",
     "email": "baicoianuioansorin@gmail.com"
@@ -16,10 +16,18 @@
     },
     {
       "name": "study-dash",
-      "description": "Structured learning on any subject — dashboard, Q&A logging, AI visualizations, exercises with test validation",
+      "description": "Structured learning on any subject \u2014 dashboard, Q&A logging, AI visualizations, exercises with test validation",
       "source": {
         "source": "github",
         "repo": "bis-code/study-dash"
+      }
+    },
+    {
+      "name": "claude-radar",
+      "description": "Surface curated Claude Code ecosystem items + brainstorm what to install/try (skill + 2 slash commands)",
+      "source": {
+        "source": "github",
+        "repo": "bis-code/claude-radar-plugin"
       }
     }
   ]
