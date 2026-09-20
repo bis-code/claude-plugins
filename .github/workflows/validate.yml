@@ -72,7 +72,7 @@ jobs:
         # worth seeing every week without turning the check permanently red.
         run: |
           for repo in $(python3 -c "import json; print(' '.join(p['source']['repo'] for p in json.load(open('.claude-plugin/marketplace.json'))['plugins']))"); do
-            dir="$RUNNER_TEMP/$(basename "$repo")"
+            dir="$RUNNER_TEMP/${repo//\//_}"
             if git clone -q --depth 1 "https://github.com/$repo" "$dir" 2>/dev/null; then
               claude plugin validate "$dir"
             else
