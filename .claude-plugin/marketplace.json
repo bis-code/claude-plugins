@@ -1,9 +1,8 @@
 {
   "name": "bis-code",
-  "description": "Claude Code plugins by Ioan-Sorin Baicoianu \u2014 structured reasoning, learning tools, and more",
+  "description": "Claude Code plugins by bis-code — structured reasoning, learning tools, a complete user-scope config, and more",
   "owner": {
-    "name": "Ioan-Sorin Baicoianu",
-    "email": "baicoianuioansorin@gmail.com"
+    "name": "bis-code"
   },
   "plugins": [
     {
@@ -16,18 +15,18 @@
     },
     {
       "name": "study-dash",
-      "description": "Structured learning on any subject \u2014 dashboard, Q&A logging, AI visualizations, exercises with test validation",
+      "description": "Structured learning on any subject — dashboard, Q&A logging, AI visualizations, exercises with test validation",
       "source": {
         "source": "github",
         "repo": "bis-code/study-dash"
       }
     },
     {
-      "name": "claude-radar",
-      "description": "Surface curated Claude Code ecosystem items + brainstorm what to install/try (skill + 2 slash commands)",
+      "name": "bearclaw",
+      "description": "A complete user-scope Claude Code config — skills, agents, rules and hooks — installable as a plugin",
       "source": {
         "source": "github",
-        "repo": "bis-code/claude-radar-plugin"
+        "repo": "bis-code/bearclaw"
       }
     }
   ]
